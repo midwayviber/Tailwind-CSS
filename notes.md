@@ -276,14 +276,6 @@ Here are the definitions and usage for **width** and **height** in **Tailwind CS
 
 # **2.  Width and Height**
 
-### **Width**
-- **Definition**: Width defines the horizontal measurement of an element, controlling how much space it occupies on the page.
-
-### **Height**
-- **Definition**: Height defines the vertical measurement of an element, controlling how much space it occupies in the vertical direction.
-
----
-
 ## **How Width and Height Are Used in Tailwind CSS**
 
 ### **Tailwind CSS Width (`w-*`)**
@@ -346,3 +338,212 @@ Here are the definitions and usage for **width** and **height** in **Tailwind CS
 ```
 
 --- 
+
+## **Width and Height in Tailwind CSS**
+
+### **Width (`w-*`)**
+- Used to control the **horizontal size** of an element.
+- Can be set in **absolute units**, **relative units**, or as fractions.
+
+### **Height (`h-*`)**
+- Used to control the **vertical size** of an element.
+- Can be set in **absolute units**, **relative units**, or as fractions.
+
+---
+
+## **Values for Width and Height**
+
+### **Absolute Units**
+| **Class**   | **Value in rem** | **Value in px** |
+|-------------|------------------|-----------------|
+| **`w-px`**  | `0.0625rem`      | `1px`           |
+| **`w-0`**   | `0rem`           | `0px`           |
+| **`w-1`**   | `0.25rem`        | `4px`           |
+| **`w-2`**   | `0.5rem`         | `8px`           |
+| **`w-4`**   | `1rem`           | `16px`          |
+| **`w-8`**   | `2rem`           | `32px`          |
+| **`w-16`**  | `4rem`           | `64px`          |
+
+The same values are available for **height** (`h-*`).
+
+### **Relative Units**
+| **Class**     | **Width/Height**          |
+|---------------|---------------------------|
+| **`w-auto`**  | Auto width (default).     |
+| **`w-full`**  | 100% of parent container. |
+| **`w-screen`**| 100% of the viewport width.|
+| **`h-auto`**  | Auto height (default).    |
+| **`h-full`**  | 100% of parent container. |
+| **`h-screen`**| 100% of the viewport height.|
+
+### **Fractional Units**
+| **Class**   | **Width/Height**            |
+|-------------|-----------------------------|
+| **`w-1/2`** | 50% of parent container.    |
+| **`w-1/3`** | 33.33% of parent container. |
+| **`w-1/4`** | 25% of parent container.    |
+
+---
+
+## **Examples**
+
+### **Width Examples**
+```html
+<!-- Fixed width of 64px -->
+<div class="w-16 bg-gray-300">Width: 4rem (64px)</div>
+
+<!-- Full width -->
+<div class="w-full bg-blue-300">Width: 100% of parent</div>
+
+<!-- Screen width -->
+<div class="w-screen bg-green-300">Width: 100% of viewport</div>
+
+<!-- Fractional width -->
+<div class="w-1/3 bg-yellow-300">Width: 1/3 of parent</div>
+```
+
+### **Height Examples**
+```html
+<!-- Fixed height of 32px -->
+<div class="h-8 bg-red-300">Height: 2rem (32px)</div>
+
+<!-- Full height -->
+<div class="h-full bg-purple-300">Height: 100% of parent</div>
+
+<!-- Screen height -->
+<div class="h-screen bg-teal-300">Height: 100% of viewport</div>
+
+<!-- Fractional height -->
+<div class="h-1/2 bg-orange-300">Height: 1/2 of parent</div>
+```
+
+---
+
+# 3. **Font Sizes in Tailwind CSS**
+
+### **Definition**
+- Font size in Tailwind CSS is controlled using the `text-*` utility class.
+- It specifies the size of the text content in `rem` units for better scalability and responsiveness.
+
+---
+
+### **Common Font Sizes**
+| **Class**     | **Font Size** | **Equivalent in px** |
+|---------------|---------------|-----------------------|
+| **`text-xs`** | `0.75rem`     | `12px`               |
+| **`text-sm`** | `0.875rem`    | `14px`               |
+| **`text-base`** | `1rem`       | `16px`               |
+| **`text-lg`** | `1.125rem`    | `18px`               |
+| **`text-xl`** | `1.25rem`     | `20px`               |
+| **`text-2xl`** | `1.5rem`      | `24px`               |
+| **`text-3xl`** | `1.875rem`    | `30px`               |
+| **`text-4xl`** | `2.25rem`     | `36px`               |
+| **`text-5xl`** | `3rem`        | `48px`               |
+| **`text-6xl`** | `3.75rem`     | `60px`               |
+| **`text-7xl`** | `4.5rem`      | `72px`               |
+| **`text-8xl`** | `6rem`        | `96px`               |
+| **`text-9xl`** | `8rem`        | `128px`              |
+
+---
+
+### **Examples**
+
+#### **Basic Font Sizes**
+```html
+<div class="text-xs">This text is 12px.</div>
+<div class="text-base">This text is 16px (default size).</div>
+<div class="text-2xl">This text is 24px.</div>
+```
+
+#### **Scaling Headers**
+```html
+<h1 class="text-4xl font-bold">Large Header</h1>
+<h2 class="text-3xl font-semibold">Medium Header</h2>
+<h3 class="text-xl">Small Header</h3>
+```
+
+---
+
+### **Use Cases**
+- **Small Text**: Use `text-xs` or `text-sm` for labels or captions.
+- **Default Text**: Use `text-base` for paragraph content.
+- **Large Text**: Use `text-xl` and above for headings or important content.
+
+---
+
+Here are the detailed notes on **font weight** and **font style** in Tailwind CSS:
+
+---
+
+# 4. **Font Weight in Tailwind CSS**
+
+### **Definition**
+- Font weight determines the **thickness or boldness** of text.
+- Controlled using the `font-*` utility classes in Tailwind CSS.
+
+---
+
+### **Font Weight Classes**
+| **Class**         | **Font Weight** | **Description**                   |
+|-------------------|-----------------|-----------------------------------|
+| **`font-thin`**   | `100`           | Very thin text.                   |
+| **`font-extralight`** | `200`      | Extra light text.                 |
+| **`font-light`**  | `300`           | Light text.                       |
+| **`font-normal`** | `400`           | Normal (default) text weight.     |
+| **`font-medium`** | `500`           | Slightly bold text.               |
+| **`font-semibold`** | `600`        | Semi-bold text.                   |
+| **`font-bold`**   | `700`           | Bold text.                        |
+| **`font-extrabold`** | `800`       | Extra bold text.                  |
+| **`font-black`**  | `900`           | Extremely bold text.              |
+
+---
+
+### **Examples**
+
+#### **Basic Font Weights**
+```html
+<p class="font-thin">Thin Text (100)</p>
+<p class="font-normal">Normal Text (400)</p>
+<p class="font-bold">Bold Text (700)</p>
+<p class="font-black">Black Text (900)</p>
+```
+
+---
+
+## **Font Style in Tailwind CSS**
+
+### **Definition**
+- Font style controls the **style of the text**, such as **normal** or **italic**.
+
+---
+
+### **Font Style Classes**
+| **Class**       | **Description**           |
+|-----------------|---------------------------|
+| **`italic`**    | Applies italic styling.   |
+| **`not-italic`** | Removes italic styling.  |
+
+---
+
+### **Examples**
+
+#### **Using Font Style**
+```html
+<p class="italic">This text is italic.</p>
+<p class="not-italic">This text is not italic.</p>
+```
+
+---
+
+### **Combining Font Weight and Style**
+```html
+<p class="font-bold italic">Bold and Italic Text</p>
+<p class="font-light not-italic">Light and Normal Text</p>
+```
+
+---
+
+### **Use Cases**
+- **Font Weight**: Adjust for headings, emphasis, or subtlety.
+- **Font Style**: Use italics for quotes, foreign phrases, or stylistic emphasis.
+
