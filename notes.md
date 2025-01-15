@@ -547,3 +547,190 @@ Here are the detailed notes on **font weight** and **font style** in Tailwind CS
 - **Font Weight**: Adjust for headings, emphasis, or subtlety.
 - **Font Style**: Use italics for quotes, foreign phrases, or stylistic emphasis.
 
+Here are the detailed notes on **line spacing** (line-height) in Tailwind CSS:
+
+---
+
+# 5. **Line Spacing (Line-Height) in Tailwind CSS**
+
+### **Definition**
+- Line spacing controls the **vertical spacing between lines of text**.
+- Managed using the `leading-*` utility class in Tailwind CSS.
+
+---
+
+### **Line-Height Classes**
+| **Class**         | **Line Height** | **Description**                     |
+|-------------------|-----------------|-------------------------------------|
+| **`leading-none`** | `1`            | No extra space between lines.       |
+| **`leading-tight`** | `1.25`        | Slightly tight line spacing.        |
+| **`leading-snug`** | `1.375`        | Moderately snug line spacing.       |
+| **`leading-normal`** | `1.5`        | Default/normal line spacing.        |
+| **`leading-relaxed`** | `1.625`     | Relaxed, spaced-out line spacing.   |
+| **`leading-loose`** | `2`           | Very loose and spaced-out lines.    |
+
+---
+
+### **Examples**
+
+#### **Basic Line Spacing**
+```html
+<!-- Tight line spacing -->
+<p class="leading-tight">
+  This is an example of tight line spacing. The text lines are close together.
+</p>
+
+<!-- Normal line spacing -->
+<p class="leading-normal">
+  This is an example of normal line spacing. The text lines are spaced normally.
+</p>
+
+<!-- Relaxed line spacing -->
+<p class="leading-relaxed">
+  This is an example of relaxed line spacing. The text lines have extra space.
+</p>
+```
+
+#### **Combining Line Spacing with Font Sizes**
+```html
+<p class="text-lg leading-loose">
+  This is a large text with loose line spacing. Ideal for easier readability in long-form content.
+</p>
+
+<p class="text-sm leading-tight">
+  This is small text with tight line spacing. Great for compact areas.
+</p>
+```
+
+---
+
+### **Use Cases**
+- **Tight Spacing**: Use `leading-tight` for headers to group the text more closely.
+- **Normal Spacing**: Use `leading-normal` for body text.
+- **Relaxed Spacing**: Use `leading-relaxed` or `leading-loose` for large blocks of text for improved readability.
+
+
+---
+
+# TailwindCSS: Text Capitalization & Text Overflow
+
+## 1. Text Capitalization in TailwindCSS
+
+TailwindCSS provides utilities to transform the case of text content effortlessly. These classes modify the appearance of text without altering the actual content in the DOM.
+
+| **Class Name**      | **Description**                                                                                   | **Example Output**                                   |
+|---------------------|---------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| `uppercase`         | Converts all letters in the text to uppercase.                                                   | "this is a test" → **THIS IS A TEST**               |
+| `lowercase`         | Converts all letters in the text to lowercase.                                                   | "THIS IS A TEST" → **this is a test**               |
+| `capitalize`        | Capitalizes the first letter of every word in the text.                                          | "this is a test" → **This Is A Test**               |
+| `normal-case`       | Resets any transformations and displays the text as it is written in the source (default styling).| "THIS IS a Test" → **THIS IS a Test**               |
+
+### Example Usage:
+```html
+<p class="uppercase">Make this text uppercase</p>
+<p class="lowercase">MAKE THIS TEXT LOWERCASE</p>
+<p class="capitalize">capitalize each word in this sentence</p>
+<p class="normal-case">RESET THE CASE To Normal Style</p>
+```
+
+---
+
+## 2. Text Overflow in TailwindCSS
+
+Text overflow utilities control how overflowing text content is displayed when it exceeds the container's boundaries. This includes truncating text, adding ellipses, or simply clipping the overflow.
+
+| **Class Name**         | **Description**                                                                                     | **Use Case**                                                                                     |
+|------------------------|-----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| `truncate`             | Cuts off overflowing text and displays an ellipsis (`...`) if the text overflows the container.    | For compact displays where the text must fit within a limited space, like cards or buttons.     |
+| `overflow-ellipsis`    | Ensures that an ellipsis appears for any text that overflows the container.                        | Used for headlines, table rows, or single-line text truncation.                                 |
+| `overflow-clip`        | Clips the text at the container boundary without showing an ellipsis.                              | When truncation is required without visual indicators like ellipses.                           |
+| `whitespace-nowrap`    | Prevents text from wrapping to the next line.                                                      | Essential for applying `truncate` or `overflow-ellipsis`.                                      |
+| `break-words`          | Breaks words that are too long to fit the container, allowing them to wrap to the next line.        | Useful for URLs, long strings, or unformatted user input.                                       |
+| `break-normal`         | Disables word breaking and uses normal text wrapping behavior (default).                           | For consistent and default behavior when no special overflow handling is needed.               |
+
+### Example Usage:
+```html
+<!-- Truncate Text with Ellipsis -->
+<div class="w-40 truncate">This is a very long sentence that will truncate with an ellipsis.</div>
+
+<!-- Overflow with Ellipsis -->
+<div class="w-40 overflow-ellipsis whitespace-nowrap">This text will show an ellipsis when it overflows the container.</div>
+
+<!-- Overflow without Ellipsis -->
+<div class="w-40 overflow-clip">This text will be clipped without any ellipsis.</div>
+
+<!-- Break Words -->
+<div class="w-40 break-words">ThisIsAReallyLongWordThatWillBreakIntoMultipleLinesIfNecessary</div>
+
+<!-- Normal Breaking -->
+<div class="w-40 break-normal">This text will wrap naturally based on the container size.</div>
+```
+
+---
+
+## 3. Combining Classes for Better Control
+
+Sometimes, combining multiple utilities can help achieve the desired text transformation and overflow behavior.
+
+### Example 1: Capitalized & Truncated
+```html
+<div class="capitalize truncate w-56">
+    This sentence will capitalize the first letter of each word and truncate if it overflows the container.
+</div>
+```
+
+### Example 2: Uppercase with Ellipsis
+```html
+<div class="uppercase overflow-ellipsis whitespace-nowrap w-40">
+    This text will transform to uppercase and show an ellipsis if it overflows.
+</div>
+```
+
+---
+
+## 4. Best Practices
+
+1. **Text Capitalization:**
+   - Use `capitalize` for headlines or titles to automatically capitalize each word.
+   - Avoid using `uppercase` for paragraphs as it reduces readability.
+
+2. **Text Overflow:**
+   - Always pair `truncate` or `overflow-ellipsis` with `whitespace-nowrap` to ensure proper behavior.
+   - Use `break-words` for unpredictable or user-generated content to prevent layout-breaking.
+
+---
+
+## 5. Full Example
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-8">
+    <!-- Capitalization Examples -->
+    <h1 class="uppercase">This is an uppercase heading</h1>
+    <p class="lowercase">THIS IS A LOWERCASE PARAGRAPH</p>
+    <p class="capitalize">this is a sentence with capitalize applied</p>
+    <p class="normal-case">RESET THE TEXT to normal style</p>
+
+    <!-- Text Overflow Examples -->
+    <div class="mt-6 w-64 bg-gray-100 p-2">
+        <p class="truncate">This is a very long sentence that will truncate with an ellipsis.</p>
+    </div>
+
+    <div class="mt-6 w-64 bg-gray-200 p-2">
+        <p class="overflow-ellipsis whitespace-nowrap">This text will show an ellipsis when it overflows the container.</p>
+    </div>
+
+    <div class="mt-6 w-64 bg-gray-300 p-2">
+        <p class="overflow-clip">This text will be clipped without any ellipsis.</p>
+    </div>
+
+    <div class="mt-6 w-64 bg-gray-400 p-2">
+        <p class="break-words">ThisIsAReallyLongWordThatWillBreakIntoMultipleLinesIfNecessary</p>
+    </div>
+</body>
+</html>
+```
+
